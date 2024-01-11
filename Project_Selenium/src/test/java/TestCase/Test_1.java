@@ -31,6 +31,7 @@ public class Test_1{
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 		}
+		    //double d = Double.parseDouble("6"); 
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); //Implicit Wait
 			WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10)); //Explicit wait
 			driver.manage().window().maximize();   //Helps to maximize the full screen for the browser 
