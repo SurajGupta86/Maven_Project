@@ -37,7 +37,7 @@ public class ScreenshotTest {
 		    //double d = Double.parseDouble("6"); 
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); //Implicit Wait
 			
-			WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10)); //Explicit wait
+			//WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10)); //Explicit wait
 			
 			driver.manage().window().maximize();   //Helps to maximize the full screen for the browser 
 			
@@ -48,8 +48,10 @@ public class ScreenshotTest {
 			FileUtils.copyFile(screenshot, new File("./screenshots/fullpage.png"));
 			
 			System.out.println("Title of the page is: "+driver.getTitle());
+			
 			WebElement login=driver.findElement(By.xpath("//span[text()='Login']"));
 			
+			//Capturing ss of the particular element
 			File screenshot1 = login.getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(screenshot1, new File("./screenshots/loginbutton.png"));
 			
