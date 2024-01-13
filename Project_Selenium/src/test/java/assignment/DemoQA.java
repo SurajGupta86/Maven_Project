@@ -8,6 +8,8 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DemoQA {
 
@@ -18,12 +20,12 @@ public class DemoQA {
 		
 		driver.manage().window().maximize();
 		
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));  //implicit wait	
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));  //explicit wait
 		driver.get("https://demoqa.com/");
-		System.out.println(driver.getTitle());
+		System.out.println("Title of the page is: "+driver.getTitle());
 		
-		driver.findElement(By.xpath("//h5[text()='Elements']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h5[text()='Elements']"))).click();
 		driver.findElement(By.xpath("//span[text()='Text Box']")).click();
 		
 		//Fill the Text Box page
@@ -31,7 +33,10 @@ public class DemoQA {
 		driver.findElement(By.id("userEmail")).sendKeys("ABC@gmail.com");
 		driver.findElement(By.id("currentAddress")).sendKeys("XYZ Lane");
 		driver.findElement(By.id("permanentAddress")).sendKeys(" ANZ Road");
-		driver.findElement(By.id("submit")).click();
+		
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("submit"))).click();
+		//driver.findElement(By.id("submit")).click();
 		
 		//Take screenshot of the whole page
 		File ss = driver.getScreenshotAs(OutputType.FILE);
