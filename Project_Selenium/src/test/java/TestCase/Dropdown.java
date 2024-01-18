@@ -49,14 +49,22 @@ public class Dropdown{
 //				System.out.println(i.getAttribute("href"));
 //			}
 			
+			//Print the links which are there in a bottom section
+//			WebElement allLink = driver.findElement(By.xpath("//div[@class='_2j7a4R']"));
+//			List<WebElement> url = allLink.findElements(By.tagName("a"));
+//			System.out.println(url.size());
+//			for(WebElement k : url) {
+//				System.out.println(k.getAttribute("title")+"- The URL of the title is :"+k.getAttribute("href"));
+//			}
+			
 			//Print the links which are there in a specific region or block
 			//WebElement allinks = driver.findElement(By.xpath("//div[@class='_3xGbi-']//preceding-sibling::div[@class='_15e_hF']"));
 			//System.out.println(allinks);
 			WebElement allinks = driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[1]/div/div/div/div/div[1]/div/div[1]/div/div[2]/div[3]/footer/div/div[1]/div[2]"));
-			List<WebElement> url = allinks.findElements(By.tagName("a"));
+			List<WebElement> urls = allinks.findElements(By.tagName("a"));
 			//System.out.println(url.get(1));
-			System.out.println(url.size());
-			for(WebElement k : url) {
+			System.out.println(urls.size());
+			for(WebElement k : urls) {
 				System.out.println(k.getAttribute("title")+"- The URL of the title is :"+k.getAttribute("href"));
 			}
 			
