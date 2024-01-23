@@ -58,9 +58,9 @@ public class Dropdown{
 //			}
 			
 			//Print the links which are there in a specific region or block
-			//WebElement allinks = driver.findElement(By.xpath("//div[@class='_3xGbi-']//preceding-sibling::div[@class='_15e_hF']"));
+			WebElement allinks = driver.findElement(By.xpath("//*[text()='Top Stories :']//following::div[@class='_3xGbi-'][1]"));
 			//System.out.println(allinks);
-			WebElement allinks = driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[1]/div/div/div/div/div[1]/div/div[1]/div/div[2]/div[3]/footer/div/div[1]/div[2]"));
+			//WebElement allinks = driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[1]/div/div/div/div/div[1]/div/div[1]/div/div[2]/div[3]/footer/div/div[1]/div[2]"));
 			List<WebElement> urls = allinks.findElements(By.tagName("a"));
 			//System.out.println(url.get(1));
 			System.out.println(urls.size());
