@@ -15,20 +15,20 @@ public class isElementPresent {
 	public static WebDriver driver;
 	
 	public static boolean ElementPresent(String locator) {
-//		try {
-//		driver.findElement(By.id(locator));
-//		return true;
-//		}catch(Throwable t) {
-//			return false;
-//		}
-		
-		int size = driver.findElements(By.xpath(locator)).size();
-		System.out.println(size);
-		if(size==0) {
+		try {
+		driver.findElement(By.xpath(locator));
+		return true;
+		}catch(Throwable t) {
 			return false;
-		}else {
-			return true;
 		}
+		
+//		int size = driver.findElements(By.xpath(locator)).size();
+//		System.out.println(size);
+//		if(size==0) {
+//			return false;
+//		}else {
+//			return true;
+//		}
 		
 	}
 
@@ -47,15 +47,16 @@ public class isElementPresent {
 		
 		
 		driver.get("https://www.globalsqa.com/demo-site/draggableboxes/");
-		String title = driver.getTitle();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().window().maximize();
+		String title = driver.getTitle();
+		System.out.println(title);
 		
 //		Boolean result = driver.findElement(By.id("searchLanguage")).isDisplayed();
 //		System.out.println(result);
 		
 		System.out.println(ElementPresent("//span[text()='Widgets']"));
-		System.out.println("Title is "+title);
-		driver.manage().window().maximize();
+		
 		driver.close();	
 
 	}
