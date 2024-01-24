@@ -61,9 +61,6 @@ public class dropdown {
 		
 		for(int i=0;i<allOptions.size();i++) {
 			System.out.println(allOptions.get(i).getText());
-		}
-		
-	
-		
+		}		
 	}
 }
