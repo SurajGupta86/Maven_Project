@@ -24,8 +24,8 @@ public class iframesclass {
 		
 		
 		//Performing action in first frame inside the 'framesWrapper'
-		WebElement frames = driver.findElement(By.xpath("//div[@id='framesWrapper']//iframe[@id='frame1']"));
-		driver.switchTo().frame(frames);
+		WebElement frame1 = driver.findElement(By.xpath("//div[@id='framesWrapper']//iframe[@id='frame1']"));
+		driver.switchTo().frame(frame1);
 		System.out.println("Frame Text 1: "+driver.findElement(By.xpath("//body//h1[1]")).getText());
 		
 		driver.switchTo().defaultContent();  //Returning back to the main page
@@ -35,8 +35,13 @@ public class iframesclass {
 		driver.switchTo().frame(frame2);
 		System.out.println("Frame Text 2: "+driver.findElement(By.xpath("//body//h1[1]")).getText());
 		
-		//driver.switchTo().frame
+		driver.switchTo().defaultContent();  //Returning back to the main page
 		
+		//Performing some actions on the main page
+		driver.findElement(By.xpath("//*[text()='Forms']")).click();		
+		driver.findElement(By.xpath("//*[text()='Practice Form']")).click();
+		
+		driver.close();
 	}
 	
 }
