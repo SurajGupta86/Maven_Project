@@ -51,21 +51,24 @@ public class newTabsandWindows {
 			}
 			
 			
-			driver.switchTo().window(mainWinHandle);
+//			driver.switchTo().window(mainWinHandle);
+//			System.out.println("First window Title: "+driver.getTitle());
+//			
+//			driver.switchTo().window(mainWinHandle2);
+//			System.out.println("Sec window Title: "+driver.getTitle());
+//			
+//			driver.switchTo().window(mainWinHandle3);
+//			System.out.println("Third window Title: "+driver.getTitle());
+			
+			driver.switchTo().window(winIndex.get(0));
 			System.out.println("First window Title: "+driver.getTitle());
 			
-			driver.switchTo().window(mainWinHandle2);
-			System.out.println("Sec window Title: "+driver.getTitle());
+			driver.switchTo().window(winIndex.get(1));
+			System.out.println("Second window Title: "+driver.getTitle());
 			
-			driver.switchTo().window(mainWinHandle3);
-			System.out.println("Third window Title: "+driver.getTitle());
-//			
-//			driver.switchTo().window(winIndex.get(1));
-//			System.out.println("Second window Tilte"+driver.getTitle());
-//			
-//			driver.switchTo().window(winIndex.get(2));
-//			System.out.println("third window Tilte"+driver.getTitle());
-//			
+			driver.switchTo().window(winIndex.get(2));
+			System.out.println("third window Title: "+driver.getTitle());
+			
 			
 			driver.manage().window().maximize();
 			driver.quit();	
