@@ -23,7 +23,7 @@ public class tabsAndwindows {
 		String title = driver.getTitle();
 		System.out.println("Title is "+title);
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));  //implicit wait	
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));  //implicit wait	
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); //explicit wait
 		
 		String mainWinHandle = driver.getWindowHandle();  //Get the ID of a particular window
