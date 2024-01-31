@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -26,6 +27,8 @@ public class buttonsClick {
 		
 		//Perform double click operation
 		WebElement doubleclick = driver.findElement(By.xpath("//*[text()='Double Click Me']"));
+//		doubleclick.sendKeys(Keys.ENTER);
+//		doubleclick.sendKeys(Keys.ENTER);
 		act.doubleClick(doubleclick).perform();
 		
 		Thread.sleep(2000);
