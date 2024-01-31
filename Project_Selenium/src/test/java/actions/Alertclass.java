@@ -37,6 +37,7 @@ public class Alertclass {
 //		driver.findElement(By.id("alertButton")).click();
 //		Alert alt = driver.switchTo().alert();
 //		System.out.println(alt.getText());
+//		alt.accept();
 		
 		//Perform the Alert function for getting an alert window after 5 seconds
 //		driver.findElement(By.id("timerAlertButton")).click();
@@ -47,15 +48,21 @@ public class Alertclass {
 //		alt_1.accept();
 		
 		//Perform the Alert function for getting an alert window with 'Ok' and 'Cancel' option
-		driver.findElement(By.id("confirmButton")).click();
-		File screenshot = driver.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(screenshot, new File("./screenshots/alert.png"));
-		Alert alt1 = driver.switchTo().alert();
-		Thread.sleep(5000);
-		System.out.println(alt1.getText());
-		alt1.dismiss();
-		
-		
+//		driver.findElement(By.id("confirmButton")).click();
+//		Alert alt1 = driver.switchTo().alert();
+//		//alt1.wait(2000, 20000);
+//		//File screenshot = driver.getScreenshotAs(OutputType.FILE);
+//		//FileUtils.copyFile(screenshot, new File("./screenshots/alert.png"));
+//		System.out.println(alt1.getText());
+//		alt1.dismiss();
+	
+		//Perform the Alert function for getting an alert window and Sen the text in the textbox
+		driver.findElement(By.id("promtButton")).click();
+		Alert alt2 = driver.switchTo().alert();
+		System.out.println(alt2.getText());
+		alt2.sendKeys("Hello");
+		//Thread.sleep(2000);
+		alt2.accept();	
 		
 	}
 }
