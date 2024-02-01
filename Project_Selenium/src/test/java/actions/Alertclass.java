@@ -38,7 +38,7 @@ public class Alertclass {
 //		Alert alt = driver.switchTo().alert();
 //		System.out.println(alt.getText());
 //		alt.accept();
-		
+		//
 		//Perform the Alert function for getting an alert window after 5 seconds
 //		driver.findElement(By.id("timerAlertButton")).click();
 //		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));  //Using explicit wait to look for alert being present or not
