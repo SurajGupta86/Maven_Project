@@ -1,9 +1,13 @@
 package actions;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -30,13 +34,18 @@ public class ModalDialog {
 		System.out.println("Clicking launch modal button");
 		driver.findElement(By.id("showSmallModal")).click();
 		
-		// wait to let the modal box be visible
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("modal-dialog modal-sm")));
+		
+//		// wait to let the modal box be visible
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='modal-dialog modal-sm']")));
+		
+		//Capture the screenshot of the modal dialog page
+		File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(screenshot, new File("./screenshots/modeldialog.png"));
 		
 		// to fetch the web element of the modal container
 		System.out.println("Fetching the web element for modal container");
-		WebElement modaldialog = driver.findElement(By.className("modal-dialog modal-sm"));
+		WebElement modaldialog = driver.findElement(By.xpath("//div[@class='modal-dialog modal-sm']"));
 				
 		// to fetch the web elements of the modal content and interact with them
 		// code to fetch content of modal body and verify it
@@ -45,9 +54,10 @@ public class ModalDialog {
 		
 		// code to click on accept modal button
 		 System.out.println("Clicking modal accept button");
-		 WebElement modalAcceptButton = modaldialog.findElement(By.className("closeSmallModal"));
+		 WebElement modalAcceptButton = modaldialog.findElement(By.id("closeSmallModal"));
 		 modalAcceptButton.click();
-		
+		 
+		 driver.close();;
 	}
 
 }

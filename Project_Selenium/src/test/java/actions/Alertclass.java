@@ -10,6 +10,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -22,8 +23,7 @@ public class Alertclass {
 	
 	public static void main(String[] args) throws InterruptedException, IOException {
 		// TODO Auto-generated method stub
-
-		WebDriverManager.chromedriver().setup();
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Suraj Gupta\\Downloads\\Drivers\\chromedriver.exe");	
 		ChromeDriver driver = new ChromeDriver();
 		Actions act = new Actions(driver);
 		
@@ -48,21 +48,23 @@ public class Alertclass {
 //		alt_1.accept();
 		
 		//Perform the Alert function for getting an alert window with 'Ok' and 'Cancel' option
-//		driver.findElement(By.id("confirmButton")).click();
-//		Alert alt1 = driver.switchTo().alert();
-//		//alt1.wait(2000, 20000);
-//		//File screenshot = driver.getScreenshotAs(OutputType.FILE);
-//		//FileUtils.copyFile(screenshot, new File("./screenshots/alert.png"));
-//		System.out.println(alt1.getText());
-//		alt1.dismiss();
+		driver.findElement(By.id("confirmButton")).click();
+		//For taking screenshot for an alert window we need to use Robot Class
+		//File screenshot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		//FileUtils.copyFile(screenshot, new File("./screenshots/alert.png"));
+		Alert alt1 = driver.switchTo().alert();
+		//alt1.wait(2000, 20000);
+		Thread.sleep(5000);
+		System.out.println(alt1.getText());
+		alt1.dismiss();
 	
 		//Perform the Alert function for getting an alert window and Sen the text in the textbox
-		driver.findElement(By.id("promtButton")).click();
-		Alert alt2 = driver.switchTo().alert();
-		System.out.println(alt2.getText());
-		alt2.sendKeys("Hello");
-		//Thread.sleep(2000);
-		alt2.accept();	
+//		driver.findElement(By.id("promtButton")).click();
+//		Alert alt2 = driver.switchTo().alert();
+//		System.out.println(alt2.getText());
+//		alt2.sendKeys("Hello");
+//		//Thread.sleep(2000);
+//		alt2.accept();	
 		
 	}
 }
