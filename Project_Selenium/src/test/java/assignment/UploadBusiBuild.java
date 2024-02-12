@@ -43,11 +43,21 @@ public class UploadBusiBuild {
 			
 			String url = "https://"+ username+ ":" + password + "@" + "qa.busibud.com/test2";
 			driver.get(url);      // Basically operation done here itself still if not work use further Alert code as well
-			System.out.println("Title of the page is: "+driver.getTitle());	
-			
-			WebElement uploadfile = driver.findElement(By.xpath("//input[@type='file']//following::label"));
+			System.out.println("The site gets opened");	
+			Thread.sleep(5000);
+			WebElement uploadfile1 = driver.findElement(By.id("upload1"));
+			Thread.sleep(5000);
 //			wait.until(ExpectedConditions.elementToBeClickable(uploadfile));
-			uploadfile.sendKeys("C:\\Users\\Suraj Gupta\\Desktop\\SOU images\\IMG_20240105_132821.jpg");
+			uploadfile1.sendKeys("C:\\Users\\Suraj Gupta\\Desktop\\SOU images\\IMG_20240105_132821.jpg");
+			
+			//Using indexing with brackets for the xpath 
+			WebElement uploadfile2 = driver.findElement(By.xpath("(//input[@id='upload1'])[2]"));
+			Thread.sleep(5000);
+//			wait.until(ExpectedConditions.elementToBeClickable(uploadfile));
+			uploadfile2.sendKeys("C:\\Users\\Suraj Gupta\\Desktop\\SOU images\\IMG_20240105_133133.jpg");
+			
+			driver.findElement(By.id("submit")).click();
+			
 			System.out.println("File is Uploaded Successfully");
 	}
 }
