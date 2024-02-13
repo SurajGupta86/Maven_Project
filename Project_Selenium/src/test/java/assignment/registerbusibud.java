@@ -59,5 +59,8 @@ public class registerbusibud {
 			
 			System.out.println("The registration done successfully");
 			
+			driver.close();
+
+			
 	}
 }
